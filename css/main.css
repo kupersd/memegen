@@ -1,0 +1,379 @@
+* {
+    box-sizing: border-box;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: fa;
+    src: url(../fonts/fa-brands-400.ttf);
+}
+
+.fa {
+    font-family: fa;
+}
+
+.fa.facebook::before {
+    content: "\f2ed";
+}
+
+body {
+    margin: 0;
+    /* background-image: url('../img/Forme_1.jpg'); */
+    background-color: #22252c;
+}
+
+/* BASE */
+
+html {
+    font-family: lato, sans-serif;
+    color: #606060;
+    line-height: 1.25;
+    font-size: 15px;
+}
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin: 0 0 0.65em;
+    line-height: 1.071;
+}
+
+h2 {
+    font-size: 1.75rem;
+    color: #4f4e4e;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0 0 1.93em;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+a:hover {
+    color: #ff7e00;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+canvas {
+    margin: 0;
+}
+
+/* BUTTONS */
+
+.btn-round {
+    line-height: 2.5em;
+    color: #c2c1c1;
+    letter-spacing: 0.48px;
+    font-weight: 700;
+    font-size: 1em;
+    padding: 0 1.25em;
+    border: 2px solid #c2c2c2;
+    border-radius: 2em;
+    background-color: #ffffff;
+}
+
+.btn-reg {
+    width: 100%;
+    box-shadow: 1px 5px 0 rgba(92, 92, 92, 0.55), inset 0 5px 0 rgba(255, 255, 255, 0.58);
+    border-radius: 10px;
+    padding: 0;
+    border: none;
+}
+
+/* LAYOUT */
+
+.main-layout {
+    max-width: 1257px;
+    margin: 0 auto;
+}
+
+main {
+    flex-direction: column;
+}
+
+.btn-reg {
+    margin-inline-end: 1.1875rem;
+}
+
+/* HEADER */
+
+.logo {
+    text-transform: uppercase;
+    flex-grow: 1;
+}
+
+.main-header {
+    width: 100%;
+    border-radius: 37px;
+    background-color: #5970c1;
+    background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
+    margin-bottom: 1.3rem;
+}
+
+.main-header a {
+    height: 73px;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1.375em;
+}
+
+/* MAIN */
+
+.main-content {
+    position: relative;
+}
+
+.editor {
+    margin-bottom: 3rem;
+    display: none;
+    /* position: absolute;
+    top: -1000px; */
+}
+
+/* .editor-show {
+    top: 98px;
+} */
+
+.canvas-container {
+    margin-inline-start: 5.3125rem;
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+.control-bar {
+    height: 500px;
+    max-width: 35vw;
+    box-shadow: 1px 5px 0 #565050, inset 0 5px 0 #565050;
+    border-radius: 30px;
+    background-color: #393d42;
+    margin-inline-start: 5.625rem;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-line {
+    height: 3.5625rem;
+    width: 100%;
+    box-shadow: 0px 2px 3px 0px #bbc4d1, inset 0 5px 0 #ffffff;
+    ;
+    border-radius: 28px;
+    background-color: #ebeef3;
+    margin-bottom: 1.125rem;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+.first-btn-section {
+    margin-bottom: 2.325rem;
+    display: grid;
+    grid-template-columns: repeat(4, 3.5em);
+    justify-content: center;
+    gap: 2em;
+}
+
+.second-btn-section {
+    height: 151px;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #19a59f;
+    display: grid;
+    grid-template-columns: repeat(5, 3.5em);
+    gap: 1.1875rem 1.525rem;
+    justify-content: center;
+    margin-bottom: 1.375rem;
+    align-items: center;
+}
+
+/* TODO: DELETE */
+
+.btn-switch {
+    background-color: #ebeef3;
+    background-image: linear-gradient(-38deg, #66c4dc 0%, #40b1ce 50%, #0c98bb 100%);
+}
+
+/* TODO: DELETE */
+
+.btn-add {
+    font-family: "Poppins - Semi Bold";
+    font-size: 3.1875rem;
+    text-transform: uppercase;
+    text-shadow: 1px 3px 0 rgba(1, 93, 51, 0.61);
+    background-color: #ebeef3;
+    background-image: linear-gradient(-38deg, #42eb5c 0%, #37b34a 100%);
+    color: #ebeef3;
+}
+
+.second-btn-section input {
+    overflow: hidden;
+    line-height: 51px;
+    text-align: center;
+}
+
+.second-btn-section input[name="stroke"]::before {
+    content: url('../img/stroke.png');
+}
+
+.second-btn-section input[name="fill"]::before {
+    content: url('../img/fill.png');
+    ;
+}
+
+.btn-font {
+    width: unset;
+    grid-column: span 3;
+}
+
+.input-color {
+    height: 51px;
+}
+
+.download-btn img {
+    width: 213px;
+}
+
+.img-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.875rem;
+}
+
+.meme-list {
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.875rem;
+}
+
+.img-gallery img {
+    border-radius: 1rem;
+}
+
+.meme-list img {
+    border-radius: 1rem;
+}
+
+.del-meme {
+    width: 35px;
+}
+
+.download-meme {
+    width: 155px;
+}
+
+/* MODAL */
+
+.modal {
+    margin: auto;
+    padding: 20px;
+    position: fixed;
+    top: 20vh;
+    left: 50%;
+    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
+    background-color: rgb(137 187 179);
+    box-shadow: 1px 4px 0px 0px #afa5a5;
+    text-align: center;
+    border-radius: 2em;
+}
+
+.modal .btn-round {
+    background-color: #093094;
+}
+
+/* HELPERS */
+
+/* flex-helpers */
+
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.space-around {
+    justify-content: space-around;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.flex-center {
+    justify-content: center;
+}
+
+/* list-helpers */
+
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+@media (max-width: 800px) {
+    .main-layout {
+        width: 80vw;
+    }
+    .editor {
+        flex-direction: column;
+    }
+    .control-bar {
+        max-width: 80vw;
+        margin: auto;
+    }
+    .canvas-container {
+        margin: 20px auto;
+    }
+    .first-btn-section {
+        display: grid;
+        grid-template-columns: repeat(4, 2.5em);
+        gap: 2em;
+    }
+    .second-btn-section {
+        grid-template-columns: repeat(5, 2.5em);
+    }
+    .input-color {
+        height: 47px;
+    }
+    .img-gallery {
+        grid-template-columns: repeat(2, minmax(155px, 1fr));
+        gap: 0.875rem;
+    }
+    .meme-list {
+        grid-template-columns: repeat(2, minmax(155px, 1fr));
+        gap: 0.875rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .first-btn-section {
+        display: grid;
+        grid-template-columns: repeat(4, 2.5em);
+        gap: 0.3em;
+    }
+    .second-btn-section {
+        grid-template-columns: repeat(5, 2.5em);
+        gap: 0.3em;
+    }
+}

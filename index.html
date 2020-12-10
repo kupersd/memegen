@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Mem-Gen</title>
+</head>
+
+<body onload="onInit()">
+    <header class="main-header main-layout">
+        <!-- TODO: fix the spaces in the header -->
+        <ul class="clean-list flex space-around">
+            <li><a class="logo flex align-center flex-center" href="#">MEM-GEN</a></li>
+            <li><a class="flex align-center flex-center" href="#" onclick="onShowGallery()">Gallery</a></li>
+            <li><a class="flex align-center flex-center" href="#" onclick="onShowMemes()">My Memes</a></li>
+        </ul>
+    </header>
+    <main class="main-content main-layout flex space-between">
+        <div class="editor" onclick="onScreenClicked()">
+            <!-- height="500" width="500" -->
+            <div class="canvas-container">
+                <canvas id="my-canvas" onmousemove="onCanvasMouseMove(event)"
+                    onmousedown="onCanvasMouseDown(event)" onmouseup="onCanvasMouseUp(event)"
+                    onclick="onCanvasClick(event)"></canvas>
+            </div>
+            <div class="control-bar">
+                <input class="input-line" type="text" placeholder="Enter your text here" name="inputText"
+                    oninput="onInputText()" onclick="event.stopPropagation()">
+                <div class="first-btn-section">
+                    <img class="btn-reg" onclick="onLineSwitch()" src="img/switch.png">
+                    <img class="btn-reg" onclick="onLineAdd()" src="img/add.png">
+                    <img class="btn-reg" onclick="onLineDel()" src="img/trash.png">
+                    <button class="btn-reg flex align-center flex-center" onclick="onSaveMeme()">SAVE</button>
+                </div>
+                <div class="second-btn-section">
+                    <!-- <button class="btn-up btn-reg flex align-center flex-center" onclick="onLineMove(-1)">↑</button>
+                    <button class="btn-down btn-reg flex align-center flex-center" onclick="onLineMove(1)">↓</button> -->
+                    <button class="btn-font-down btn-reg flex align-center flex-center"
+                        onclick="onChangeFontSize(-1)"><img src="img/font-dec.png"></button>
+                    <button class="btn-font-up btn-reg flex align-center flex-center" onclick="onChangeFontSize(1)"><img
+                            src="img/font-inc.png"></button>
+                    <button class="btn-font-up btn-reg flex align-center flex-center"
+                        onclick="onChangeAlignment('left')"><img src="img/left.png"></button>
+                    <button class="btn-font-up btn-reg flex align-center flex-center"
+                        onclick="onChangeAlignment('center')"><img src="img/center.png"></button>
+                    <button class="btn-font-up btn-reg flex align-center flex-center"
+                        onclick="onChangeAlignment('right')"><img src="img/right.png"></button>
+                    <input class="btn-font btn-reg" onfocus="this.value=''" onchange="this.blur();"
+                        oninput="onChangedFont(event)" onclick="event.stopPropagation()" list="Fonts" name="font"
+                        placeholder="IMPACT">
+                    <datalist id="Fonts">
+                        <option value="IMPACT">
+                        <option value="ARIAL">
+                        <option value="MONTZERAT">
+                            <!-- <option value="COMIC"> -->
+                    </datalist>
+                    <input type="color" name=stroke class="input-color btn-reg" oninput="onChangedStroke()">
+                    <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
+                </div>
+                <div class="third-btn-section">
+                    <a class="download-btn" href="#" onclick="onDownloadCanvas(this)" download=""><img
+                            src="img/download.png"></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="img-gallery">
+            <img onclick="onImgChosen('1')" src="img/1.jpg">
+            <img onclick="onImgChosen('2')" src="img/2.jpg">
+            <img onclick="onImgChosen('3')" src="img/3.jpg">
+            <img onclick="onImgChosen('4')" src="img/4.jpg">
+            <img onclick="onImgChosen('5')" src="img/5.jpg">
+            <img onclick="onImgChosen('6')" src="img/6.jpg">
+            <img onclick="onImgChosen('7')" src="img/7.jpg">
+            <img onclick="onImgChosen('8')" src="img/8.jpg">
+            <img onclick="onImgChosen('9')" src="img/9.jpg">
+            <img onclick="onImgChosen('10')" src="img/10.jpg">
+            <img onclick="onImgChosen('11')" src="img/11.jpg">
+            <img onclick="onImgChosen('12')" src="img/12.jpg">
+            <img onclick="onImgChosen('13')" src="img/13.jpg">
+            <img onclick="onImgChosen('14')" src="img/14.jpg">
+            <img onclick="onImgChosen('15')" src="img/15.jpg">
+            <img onclick="onImgChosen('16')" src="img/16.jpg">
+            <img onclick="onImgChosen('17')" src="img/17.jpg">
+            <img onclick="onImgChosen('18')" src="img/18.jpg">
+        </div>
+        <div class="meme-list">
+
+        </div>
+        <div class="modal" hidden>
+            <h2>Meme was saved to your memes </h2>
+            <button class="btn-round" onclick="onCloseModal()">close</button>
+        </div>
+    </main>
+    <footer class="main-header main-layout">
+        <!-- TODO: fix the spaces in the header -->
+        <ul class="clean-list flex space-around">
+            <li><a class="logo flex align-center flex-center" href="#">MEM-GEN</a></li>
+            <li><a class="flex align-center flex-center" href="#">@coffeerigths 2020</a></li>
+            <li><a class="flex align-center flex-center" href="#">kupersd</a></li>
+        </ul>
+    </footer>
+    <script src="js/storage-service.js"></script>
+    <script src="js/mem-service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
