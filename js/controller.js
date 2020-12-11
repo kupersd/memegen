@@ -14,8 +14,8 @@ function onInit() {
             console.log('aaaaaa')   
             return
         } 
-        gCanvas.width = window.innerWidth/2
-        gCanvas.height = window.innerWidth/2
+        gCanvas.width = window.innerWidth*0.7
+        gCanvas.height = window.innerWidth*0.7
     // })
 }
 

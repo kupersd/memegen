@@ -345,6 +345,9 @@ main {
     .canvas-container {
         margin: 20px auto;
     }
+    .input-line {
+        font-size: 1rem;
+    }
     .first-btn-section {
         display: grid;
         grid-template-columns: repeat(4, 2.5em);
