@@ -23,7 +23,8 @@
             <div class="canvas-container">
                 <canvas id="my-canvas" onmousemove="onCanvasMouseMove(event)"
                     onmousedown="onCanvasMouseDown(event)" onmouseup="onCanvasMouseUp(event)"
-                    onclick="onCanvasClick(event)"></canvas>
+                    onclick="onCanvasClick(event)" ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)"
+                    ontouchend="handleTouchEnd(event)"></canvas> 
             </div>
             <div class="control-bar">
                 <input class="input-line" type="text" placeholder="Enter your text here" name="inputText"

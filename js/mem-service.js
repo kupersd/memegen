@@ -128,7 +128,6 @@ function setMoveActive(isActive, offsetX = 0, offsetY = 0) {
         gMeme.isMoveActive = false;
         return;
     }
-    console.log(offsetX, offsetY, gMeme.lines[lineIdx].x, gMeme.lines[lineIdx].x)
     gMeme.selectedLineIdx = lineIdx;
     gMeme.relX = offsetX;
     gMeme.relY = offsetY;

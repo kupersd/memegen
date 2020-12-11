@@ -96,10 +96,37 @@ function onChangedFont() {
     changeFont(font);
     renderCanvas();
 }
+
+function handleTouchStart(ev) {
+    ev.preventDefault()
+    const offset = {
+        offsetX: ev.targetTouches[0].pageX - ev.target.getBoundingClientRect().left,
+        offsetY: ev.targetTouches[0].pageY - ev.target.getBoundingClientRect().top
+    }
+    onCanvasMouseDown(offset)
+}
+
+function handleTouchEnd(ev) {
+    ev.preventDefault()
+    onCanvasMouseUp()
+    
+}
+
+function handleTouchMove(ev) {
+    ev.preventDefault()
+    const offset = {
+        offsetX: ev.targetTouches[0].pageX - ev.target.getBoundingClientRect().left,
+        offsetY: ev.targetTouches[0].pageY - ev.target.getBoundingClientRect().top
+    }
+    onCanvasMouseMove(offset)
+}
+
 function onCanvasMouseDown(ev) {
     let { offsetX, offsetY } = ev;
     setMoveActive(true, offsetX, offsetY);
-    if (checkClickPosition (offsetX, offsetY) !== -1) renderCanvas();
+    if (checkClickPosition (offsetX, offsetY) !== -1) {
+        renderCanvas();
+    }
 }
 
 function onCanvasMouseUp() {
