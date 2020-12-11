@@ -367,6 +367,9 @@ main {
         grid-template-columns: repeat(2, minmax(155px, 1fr));
         gap: 0.875rem;
     }
+    .main-header a {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 600px) {

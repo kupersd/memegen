@@ -103,6 +103,12 @@ function handleTouchStart(ev) {
         offsetX: ev.targetTouches[0].pageX - ev.target.getBoundingClientRect().left,
         offsetY: ev.targetTouches[0].pageY - ev.target.getBoundingClientRect().top
     }
+    if (checkClickPosition (offset.offsetX, offset.offsetY) === -1) {
+        if (!getLine().txt) return // not to lose focus on first line
+        gFocus = false;
+        renderCanvas();
+        return
+    }
     onCanvasMouseDown(offset)
 }
 
