@@ -27,14 +27,14 @@ var gIdx;
 
 function createMemes() {
     var memes = loadFromStorage(STORAGE_KEY)
-    if (!memes || !memes?.length) {
+    console ('create memes')
+    if (!memes || !memes.length) {
         gIdx = 101;
         memes = [];
         gMemes = memes;
     }
     else {
         gMemes = memes;
-        // console.log(gMemes)
         gIdx = gMemes[gMemes.length-1].id + 1;
     }
         
