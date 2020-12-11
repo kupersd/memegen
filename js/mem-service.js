@@ -27,8 +27,8 @@ var gIdx;
 
 function createMemes() {
     var memes = loadFromStorage(STORAGE_KEY)
-    console ('create memes')
-    if (!memes || !memes.length) {
+    console.log ('create memes')
+    if (!memes || !memes.?length) {
         gIdx = 101;
         memes = [];
         gMemes = memes;
