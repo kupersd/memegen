@@ -10,11 +10,12 @@ function onInit() {
     // window.addEventListener('resize', function(){
         if (window.innerWidth/2 > 500) {
             gCanvas.width = 500;    
-            gCanvas.height = 500;    
+            gCanvas.height = 500; 
+            console.log('aaaaaa')   
             return
         } 
-        gCanvas.width = window.innerWidth*0.7
-        gCanvas.height = window.innerWidth*0.7
+        gCanvas.width = window.innerWidth/2
+        gCanvas.height = window.innerWidth/2
     // })
 }
 
