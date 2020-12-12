@@ -7,16 +7,6 @@ function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
     createMemes();
-    // window.addEventListener('resize', function(){
-        if (window.innerWidth/2 > 500) {
-            gCanvas.width = 500;    
-            gCanvas.height = 500; 
-            console.log('aaaaaa')   
-            return
-        } 
-        gCanvas.width = window.innerWidth*0.7
-        gCanvas.height = window.innerWidth*0.7
-    // })
 }
 
 function renderCanvas() {
@@ -39,11 +29,36 @@ function onImgChosen(imgId) {
     const elEditor = document.querySelector('.editor')
     elEditor.style.display = 'flex'
     setImgChosen(+imgId)
-    console.log(+imgId, imgId)
+    //**************************************
+    resizeCanvas();
     renderCanvas();
     document.querySelector('input[name=inputText]').value = ''
     document.querySelector('.img-gallery').style.display = 'none'
 }
+
+function resizeCanvas() {
+    var img = new Image();
+    img.src = getImg();
+    img.onload = function () {
+        const basicSize = window.innerWidth / 2 > 500 ? 500 : window.innerWidth * 0.7;
+        if (this.width >= this.height) {
+            gCanvas.width = basicSize;
+            gCanvas.height = (basicSize / this.width) * this.height
+        } else {
+            gCanvas.height = basicSize;
+            gCanvas.width = (basicSize / this.height) * this.width
+        }
+    }
+    // const basicSize = window.innerWidth / 2 > 500 ? 500 : window.innerWidth * 0.7;
+    // if (img.width >= img.height) {
+    //     gCanvas.width = basicSize;
+    //     gCanvas.height = (basicSize / img.width) * img.height
+    // } else {
+    //     gCanvas.height = basicSize;
+    //     gCanvas.width = (basicSize / img.height) * img.width
+    // }
+}
+
 
 function onLineMove(diff) {
     moveLine(diff);
@@ -103,7 +118,7 @@ function handleTouchStart(ev) {
         offsetX: ev.targetTouches[0].pageX - ev.target.getBoundingClientRect().left,
         offsetY: ev.targetTouches[0].pageY - ev.target.getBoundingClientRect().top
     }
-    if (checkClickPosition (offset.offsetX, offset.offsetY) === -1) {
+    if (checkClickPosition(offset.offsetX, offset.offsetY) === -1) {
         if (!getLine().txt) return // not to lose focus on first line
         gFocus = false;
         renderCanvas();
@@ -115,7 +130,7 @@ function handleTouchStart(ev) {
 function handleTouchEnd(ev) {
     ev.preventDefault()
     onCanvasMouseUp()
-    
+
 }
 
 function handleTouchMove(ev) {
@@ -130,7 +145,7 @@ function handleTouchMove(ev) {
 function onCanvasMouseDown(ev) {
     let { offsetX, offsetY } = ev;
     setMoveActive(true, offsetX, offsetY);
-    if (checkClickPosition (offsetX, offsetY) !== -1) {
+    if (checkClickPosition(offsetX, offsetY) !== -1) {
         renderCanvas();
     }
 }
@@ -151,7 +166,7 @@ function onCanvasMouseMove(ev) {
 function onCanvasClick(ev) {
     ev.stopPropagation();
     let { offsetX, offsetY } = ev;
-    if (checkClickPosition (offsetX, offsetY) === -1) {
+    if (checkClickPosition(offsetX, offsetY) === -1) {
         if (!getLine().txt) return // not to lose focus on first line
         gFocus = false;
         renderCanvas();
@@ -254,7 +269,7 @@ function drawFocus() {
     const line = getLine();
     gCtx.beginPath()
     gCtx.strokeStyle = 'black'
-    const width = gCtx.measureText(line.txt).width? gCtx.measureText(line.txt).width + 15: gCanvas.width-20
-    gCtx.rect( line.x-5, line.y - line.size - 5, width , line.size + 10) // x,y,widht,height
+    const width = gCtx.measureText(line.txt).width ? gCtx.measureText(line.txt).width + 15 : gCanvas.width - 20
+    gCtx.rect(line.x - 5, line.y - line.size - 5, width, line.size + 10) // x,y,widht,height
     gCtx.stroke()
 }

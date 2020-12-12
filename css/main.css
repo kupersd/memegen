@@ -154,6 +154,9 @@ main {
     border-radius: 5%;
     overflow: hidden;
 }
+canvas {
+    border-radius: 5%;
+}
 
 .control-bar {
     height: 500px;

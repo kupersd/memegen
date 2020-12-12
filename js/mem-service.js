@@ -19,6 +19,13 @@ var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['happy'] },
 { id: 16, url: 'img/16.jpg', keywords: ['happy'] },
 { id: 17, url: 'img/17.jpg', keywords: ['happy'] },
 { id: 18, url: 'img/18.jpg', keywords: ['happy'] },
+{ id: 19, url: 'img/19.jpg', keywords: ['happy'] },
+{ id: 22, url: 'img/22.jpg', keywords: ['happy'] },
+{ id: 26, url: 'img/26.jpg', keywords: ['happy'] },
+{ id: 29, url: 'img/29.jpg', keywords: ['happy'] },
+{ id: 30, url: 'img/30.jpg', keywords: ['happy'] },
+{ id: 31, url: 'img/31.jpg', keywords: ['happy'] },
+{ id: 32, url: 'img/32.jpg', keywords: ['happy'] },
 ];
 
 var gMemes;
