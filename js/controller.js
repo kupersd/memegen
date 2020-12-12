@@ -29,7 +29,6 @@ function onImgChosen(imgId) {
     const elEditor = document.querySelector('.editor')
     elEditor.style.display = 'flex'
     setImgChosen(+imgId)
-    //**************************************
     resizeCanvas();
     renderCanvas();
     document.querySelector('input[name=inputText]').value = ''
@@ -49,14 +48,6 @@ function resizeCanvas() {
             gCanvas.width = (basicSize / this.height) * this.width
         }
     }
-    // const basicSize = window.innerWidth / 2 > 500 ? 500 : window.innerWidth * 0.7;
-    // if (img.width >= img.height) {
-    //     gCanvas.width = basicSize;
-    //     gCanvas.height = (basicSize / img.width) * img.height
-    // } else {
-    //     gCanvas.height = basicSize;
-    //     gCanvas.width = (basicSize / img.height) * img.width
-    // }
 }
 
 
@@ -223,14 +214,12 @@ function onShowMemes() {
         const img = gCanvas.toDataURL('image/jpeg');
     })
     var strHTMLs = memes.map(meme => {
-        // return `<a href="${meme.img}" download="Meme-${meme.id}"><img
-        // src="${meme.img}"></a>`
-        return `<div>
-                    <img src="${meme.img}">
-                    <div class = "flex align-center space-between">
+        return `<div class="my-memes flex">
+                    <div class = "meme-control flex space-between">
                         <a class = "download-meme" href="${meme.img}" download="Meme-${meme.id}"><img src="img/download.png"></a>
                         <img onclick = "onDeleteMeme(${meme.id})" class = "del-meme" src="img/trash.png">
                     </div>
+                    <img src="${meme.img}">
                 </div>`
     })
     const elMemeList = document.querySelector('.meme-list')

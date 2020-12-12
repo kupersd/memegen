@@ -11,10 +11,12 @@
 <body onload="onInit()">
     <header class="main-header main-layout">
         <!-- TODO: fix the spaces in the header -->
-        <ul class="clean-list flex space-around">
-            <li><a class="logo flex align-center flex-center" href="#">MEM-GEN</a></li>
-            <li><a class="flex align-center flex-center" href="#" onclick="onShowGallery()">Gallery</a></li>
-            <li><a class="flex align-center flex-center" href="#" onclick="onShowMemes()">My Memes</a></li>
+        <!-- <ul class="clean-list flex space-around"> -->
+        <ul class=" header-content clean-list">
+            <li><a class="logo flex align-center" href="#">Meme-gen</a></li>
+            <li><a class="can-press flex align-center" href="#" onclick="onShowGallery()">Gallery</a></li>
+            <!-- <li><a class="flex align-center" href="#" onclick="onShowGallery()">About</a></li> -->
+            <li><a class="can-press flex align-center" href="#" onclick="onShowMemes()">My Memes</a></li>
         </ul>
     </header>
     <main class="main-content main-layout flex space-between">
@@ -102,11 +104,11 @@
             <button class="btn-round" onclick="onCloseModal()">close</button>
         </div>
     </main>
-    <footer class="main-header main-layout">
+    <footer class="main-footer main-header main-layout">
         <!-- TODO: fix the spaces in the header -->
-        <ul class="clean-list flex space-around">
-            <li><a class="logo flex align-center flex-center" href="#">MEM-GEN</a></li>
-            <li><a class="small-rights flex align-center flex-center" href="#">kupersd @coffeerigths 2020</a></li>
+        <ul class="footer-content header-content clean-list">
+            <li><a class="logo flex align-center" href="#">Meme-gen</a></li>
+            <li><a class="small-rights flex align-center" href="#">@coffeerigths 2020</a></li>
         </ul>
     </footer>
     <script src="js/storage-service.js"></script>
