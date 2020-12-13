@@ -27,7 +27,6 @@
     content: "\f1f8";
     /* content: 'HELLO'; */
 }
-
 body {
     margin: 0;
     background-color: #22252c;
@@ -106,6 +105,15 @@ canvas {
     border: none;
 }
 
+.btn-save.btn-reg{
+    box-shadow: 0px 4px 0 #165c9c, inset 0px 0px 0 #ffffff;
+    border: none;
+    background-color: #1e7cd3;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
 /* LAYOUT */
 
 .main-layout {
@@ -272,9 +280,44 @@ canvas {
     height: 51px;
 }
 
-.download-btn img {
+/* .download-btn img {
     width: 213px;
+ } */
+
+.download-btn {
+    width: 213px;
+    height: 51px;
+    box-shadow: 0px 4px 0 #6e348f, inset 0px 0px 0 #ffffff;
+    border: none;
+    border-radius: 15px;
+    background-color: #8f44bb;
+    font-family: Poppins;
+    font-size: 21px;
+    font-weight: 500;
 }
+
+.download-btn > a {
+    color: #ffffff;
+}
+
+.share-btn {
+    width: 213px;
+    height: 51px;
+    box-shadow: 0px 4px 0 #165c9c, inset 0px 0px 0 #ffffff;
+    border: none;
+    border-radius: 15px;
+    background-color: #1e7cd3;
+    color: #ffffff;
+    font-family: Poppins;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+button i {
+    margin-inline-end: 2rem;
+}
+
+
 
 .search-img {
     margin-bottom: 1rem;
@@ -446,6 +489,12 @@ canvas {
     .input-color {
         height: 47px;
     }
+    .btn-save.btn-reg {
+        font-size: 1rem;
+    }
+    .share-btn {
+        margin-bottom: 1rem;
+    }
     .search-img {
         flex-direction: column;
         align-items: center;
@@ -459,13 +508,11 @@ canvas {
         width: 100%;
         padding: 1rem;
     }
-
-    .keywords > div {
+    .keywords>div {
         flex-basis: 33%;
         padding-inline-start: 1rem;
         height: 30px;
     }
-
     .img-gallery {
         grid-template-columns: repeat(2, minmax(155px, 1fr));
         gap: 0.875rem;

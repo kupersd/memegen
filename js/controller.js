@@ -296,6 +296,17 @@ function drawFocus() {
     gCtx.beginPath()
     gCtx.strokeStyle = 'black'
     const width = gCtx.measureText(line.txt).width ? gCtx.measureText(line.txt).width + 15 : gCanvas.width - 20
-    gCtx.rect(line.x - 5, line.y - line.size - 5, width, line.size + 10) // x,y,widht,height
+    let startX = line.x - 5;
+    switch (line.align) {
+        case 'center':
+            startX = line.x - width / 2;
+            break;
+        case 'right':
+            startX = line.x + 5 - width;
+            break;
+        default:
+            break;
+    }
+    gCtx.rect(startX, line.y - line.size - 5, width, line.size + 10) // x,y,widht,height
     gCtx.stroke()
 }

@@ -24,10 +24,10 @@
         <div class="editor" onclick="onScreenClicked()">
             <!-- height="500" width="500" -->
             <div class="canvas-container">
-                <canvas id="my-canvas" onmousemove="onCanvasMouseMove(event)"
-                    onmousedown="onCanvasMouseDown(event)" onmouseup="onCanvasMouseUp(event)"
-                    onclick="onCanvasClick(event)" ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)"
-                    ontouchend="handleTouchEnd(event)"></canvas> 
+                <canvas id="my-canvas" onmousemove="onCanvasMouseMove(event)" onmousedown="onCanvasMouseDown(event)"
+                    onmouseup="onCanvasMouseUp(event)" onclick="onCanvasClick(event)"
+                    ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)"
+                    ontouchend="handleTouchEnd(event)"></canvas>
             </div>
             <div class="control-bar">
                 <input class="input-line" type="text" placeholder="Enter your text here" name="inputText"
@@ -36,7 +36,7 @@
                     <img class="btn-reg" onclick="onLineSwitch()" src="img/switch.png">
                     <img class="btn-reg" onclick="onLineAdd()" src="img/add.png">
                     <img class="btn-reg" onclick="onLineDel()" src="img/trash.png">
-                    <button class="btn-reg flex align-center flex-center" onclick="onSaveMeme()">SAVE</button>
+                    <button class="btn-save btn-reg flex align-center flex-center" onclick="onSaveMeme()">Save</button>
                 </div>
                 <div class="second-btn-section">
                     <!-- <button class="btn-up btn-reg flex align-center flex-center" onclick="onLineMove(-1)">↑</button>
@@ -64,19 +64,25 @@
                     <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
                 </div>
                 <div class="third-btn-section">
-                    <a class="download-btn" href="#" onclick="onDownloadCanvas(this)" download=""><img
-                            src="img/download.png"></a>
+                    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input name="img" id="imgData" type="hidden" />
+                        <button class="share-btn" type="submit"><i class="fas fa-share-alt"></i>Share</button>
+                        <!-- <a class="download-btn" href="#" onclick="onDownloadCanvas(this)" download=""><img
+                                src="img/download.png"></a> -->
+                        <button class="download-btn"><a href="#" onclick="onDownloadCanvas(this)" download=""><i class="fas fa-download"></i>Download</a></button>
+                    </form>
                 </div>
 
             </div>
         </div>
         <div class="search-img flex space-between">
-            <div class = "search-img-input-container">
-                <input class = "search-img-input" type="text" name="search-img" oninput="onSetFilter()" placeholder="Search">
+            <div class="search-img-input-container">
+                <input class="search-img-input" type="text" name="search-img" oninput="onSetFilter()"
+                    placeholder="Search">
                 <i class="fas fa-search"></i>
                 <!-- <img src="img/search.jpg"> -->
             </div>
-            <div class ="keywords flex space-around"></div>
+            <div class="keywords flex space-around"></div>
         </div>
         <div class="img-gallery"></div>
         <div class="meme-list">
@@ -94,6 +100,7 @@
             <li><a class="small-rights flex align-center" href="#">@coffeerigths 2020</a></li>
         </ul>
     </footer>
+    <script src="js/upload-service.js"></script>
     <script src="js/storage-service.js"></script>
     <script src="js/mem-service.js"></script>
     <script src="js/controller.js"></script>
