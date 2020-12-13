@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <title>Mem-Gen</title>
 </head>
@@ -19,7 +20,7 @@
             <li><a class="can-press flex align-center" href="#" onclick="onShowMemes()">My Memes</a></li>
         </ul>
     </header>
-    <main class="main-content main-layout flex space-between">
+    <main class="main-content main-layout flex">
         <div class="editor" onclick="onScreenClicked()">
             <!-- height="500" width="500" -->
             <div class="canvas-container">
@@ -69,33 +70,15 @@
 
             </div>
         </div>
-        <div class="img-gallery">
-            <img onclick="onImgChosen('1')" src="img/1.jpg">
-            <img onclick="onImgChosen('2')" src="img/2.jpg">
-            <img onclick="onImgChosen('3')" src="img/3.jpg">
-            <img onclick="onImgChosen('4')" src="img/4.jpg">
-            <img onclick="onImgChosen('5')" src="img/5.jpg">
-            <img onclick="onImgChosen('6')" src="img/6.jpg">
-            <img onclick="onImgChosen('7')" src="img/7.jpg">
-            <img onclick="onImgChosen('8')" src="img/8.jpg">
-            <img onclick="onImgChosen('9')" src="img/9.jpg">
-            <img onclick="onImgChosen('10')" src="img/10.jpg">
-            <img onclick="onImgChosen('11')" src="img/11.jpg">
-            <img onclick="onImgChosen('12')" src="img/12.jpg">
-            <img onclick="onImgChosen('13')" src="img/13.jpg">
-            <img onclick="onImgChosen('14')" src="img/14.jpg">
-            <img onclick="onImgChosen('15')" src="img/15.jpg">
-            <img onclick="onImgChosen('16')" src="img/16.jpg">
-            <img onclick="onImgChosen('17')" src="img/17.jpg">
-            <img onclick="onImgChosen('18')" src="img/18.jpg">
-            <img onclick="onImgChosen('19')" src="img/19.jpg">
-            <img onclick="onImgChosen('22')" src="img/22.jpg">
-            <img onclick="onImgChosen('26')" src="img/26.jpg">
-            <img onclick="onImgChosen('29')" src="img/29.jpg">
-            <img onclick="onImgChosen('30')" src="img/30.jpg">
-            <img onclick="onImgChosen('31')" src="img/31.jpg">
-            <img onclick="onImgChosen('32')" src="img/32.jpg">
+        <div class="search-img flex space-between">
+            <div class = "search-img-input-container">
+                <input class = "search-img-input" type="text" name="search-img" oninput="onSetFilter()" placeholder="Search">
+                <i class="fas fa-search"></i>
+                <!-- <img src="img/search.jpg"> -->
+            </div>
+            <div class ="keywords flex space-around"></div>
         </div>
+        <div class="img-gallery"></div>
         <div class="meme-list">
 
         </div>

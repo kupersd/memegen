@@ -1,36 +1,59 @@
 'use strict'
 const STORAGE_KEY = 'memesDB';
 
-var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['happy'] },
-{ id: 2, url: 'img/2.jpg', keywords: ['happy'] },
-{ id: 3, url: 'img/3.jpg', keywords: ['happy'] },
-{ id: 4, url: 'img/4.jpg', keywords: ['happy'] },
-{ id: 5, url: 'img/5.jpg', keywords: ['happy'] },
-{ id: 6, url: 'img/6.jpg', keywords: ['happy'] },
+var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['strong', 'baby'] },
+{ id: 2, url: 'img/2.jpg', keywords: ['dance', 'woman', 'movie'] },
+{ id: 3, url: 'img/3.jpg', keywords: ['trump', 'look'] },
+{ id: 4, url: 'img/4.jpg', keywords: ['love', 'happy', 'dog'] },
+{ id: 5, url: 'img/5.jpg', keywords: ['sleep', 'dog', 'baby'] },
+{ id: 6, url: 'img/6.jpg', keywords: ['sleep'] },
 { id: 7, url: 'img/7.jpg', keywords: ['happy'] },
 { id: 8, url: 'img/8.jpg', keywords: ['happy'] },
-{ id: 9, url: 'img/9.jpg', keywords: ['happy'] },
-{ id: 10, url: 'img/10.jpg', keywords: ['happy'] },
-{ id: 11, url: 'img/11.jpg', keywords: ['happy'] },
-{ id: 12, url: 'img/12.jpg', keywords: ['happy'] },
+{ id: 9, url: 'img/9.jpg', keywords: ['movie'] },
+{ id: 10, url: 'img/10.jpg', keywords: ['happy', 'baby', 'dance'] },
+{ id: 11, url: 'img/11.jpg', keywords: ['strong', 'trump'] },
+{ id: 12, url: 'img/12.jpg', keywords: ['baby', 'surprised'] },
 { id: 13, url: 'img/13.jpg', keywords: ['happy'] },
-{ id: 14, url: 'img/14.jpg', keywords: ['happy'] },
-{ id: 15, url: 'img/15.jpg', keywords: ['happy'] },
-{ id: 16, url: 'img/16.jpg', keywords: ['happy'] },
-{ id: 17, url: 'img/17.jpg', keywords: ['happy'] },
-{ id: 18, url: 'img/18.jpg', keywords: ['happy'] },
-{ id: 19, url: 'img/19.jpg', keywords: ['happy'] },
-{ id: 22, url: 'img/22.jpg', keywords: ['happy'] },
-{ id: 26, url: 'img/26.jpg', keywords: ['happy'] },
-{ id: 29, url: 'img/29.jpg', keywords: ['happy'] },
-{ id: 30, url: 'img/30.jpg', keywords: ['happy'] },
-{ id: 31, url: 'img/31.jpg', keywords: ['happy'] },
-{ id: 32, url: 'img/32.jpg', keywords: ['happy'] },
+{ id: 14, url: 'img/14.jpg', keywords: ['love'] },
+{ id: 15, url: 'img/15.jpg', keywords: ['love', 'happy'] },
+{ id: 16, url: 'img/16.jpg', keywords: ['movie'] },
+{ id: 17, url: 'img/17.jpg', keywords: ['happy', 'look'] },
+{ id: 18, url: 'img/18.jpg', keywords: ['strong', 'happy', 'woman'] },
+{ id: 19, url: 'img/19.jpg', keywords: ['look', 'surprised'] },
+{ id: 22, url: 'img/22.jpg', keywords: ['look'] },
+{ id: 26, url: 'img/26.jpg', keywords: ['happy', 'dog'] },
+{ id: 29, url: 'img/29.jpg', keywords: ['happy', 'baby'] },
+{ id: 30, url: 'img/30.jpg', keywords: ['movie', 'surprised']  },
+{ id: 31, url: 'img/31.jpg', keywords: ['strong'] },
+{ id: 32, url: 'img/32.jpg', keywords: ['happy','look', 'movie'] },
 ];
+
+var gCommonSearchWords = [{word:'strong', weight: 16}, {word:'baby', weight: 16}, {word:'dance', weight: 16}, {word:'look', weight: 16}, {word:'happy', weight: 16}, {word:'dog', weight: 16}]
+// var gCommonSearchWords = ['strong', 'baby', 'dance', 'woman', 'movie', 'trump', 'look', 'love', 'happy', 'dog', 'sleep', 'surprised']
 
 var gMemes;
 var gMeme;
 var gIdx;
+var gImgFilter = 'all';
+
+function getImgsForDisplay() {
+    console.log(gImgFilter)
+    let imgs = gImgs;
+    if (gImgFilter !== 'all' && gImgFilter !== '') {
+        imgs = gImgs.filter(img => img.keywords.find(keyword => keyword.includes(gImgFilter)));
+    }
+    return imgs;
+}
+
+function getSearchWords () {
+    return gCommonSearchWords;
+}
+
+function updateKeywordSize(word) {
+    const keywordIdx = gCommonSearchWords.findIndex( keyword => keyword.word === word)
+    const maxWeight = window.innerWidth > 800 ? 40:30;
+    if (gCommonSearchWords[keywordIdx].weight < maxWeight) gCommonSearchWords[keywordIdx].weight++;
+}
 
 function createMemes() {
     var memes = loadFromStorage(STORAGE_KEY)
@@ -50,6 +73,10 @@ function createMemes() {
 
 function getImg() {
     return gImgs.find(img => img.id === gMeme.selectedImgId).url
+}
+
+function setFilter(filterBy) {
+    gImgFilter = filterBy;
 }
 
 function getLine() {

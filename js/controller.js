@@ -7,12 +7,44 @@ function onInit() {
     gCanvas = document.querySelector('canvas')
     gCtx = gCanvas.getContext('2d')
     createMemes();
+    renderGallery();
+    renderSearchWords()
 }
 
 function renderCanvas() {
     const imgSrc = getImg();
     const lines = getLines();
     drawImg(imgSrc, lines);
+}
+
+function renderGallery() {
+    const imgs = getImgsForDisplay();
+    const strHtmls = imgs.map(img =>
+        `<img onclick="onImgChosen('${img.id}')" src="${img.url}">`
+    )
+    document.querySelector('.img-gallery').innerHTML = strHtmls.join('')
+}
+
+function renderSearchWords() {
+    const keywords = getSearchWords()
+    const strHtmls = keywords.map(function (keyword) {
+        return `<div style = "font-size: ${keyword.weight}px" onclick="onKeyWordChosen('${keyword.word}')">${keyword.word}</div>`;
+    })
+    document.querySelector('.keywords').innerHTML = strHtmls.join('')
+
+}
+
+function onKeyWordChosen(keyword) {
+    updateKeywordSize(keyword.toLowerCase());
+    renderSearchWords();
+    document.querySelector('input[name=search-img]').value = keyword;
+    onSetFilter();
+}
+
+function onSetFilter() {
+    const filterWord = document.querySelector('input[name=search-img]').value;
+    setFilter(filterWord.toLowerCase());
+    renderGallery();
 }
 
 function renderLines(lines) {
@@ -32,6 +64,7 @@ function onImgChosen(imgId) {
     resizeCanvas();
     renderCanvas();
     document.querySelector('input[name=inputText]').value = ''
+    document.querySelector('.search-img').style.display = 'none'
     document.querySelector('.img-gallery').style.display = 'none'
 }
 
@@ -224,9 +257,11 @@ function onShowMemes() {
     })
     const elMemeList = document.querySelector('.meme-list')
     elMemeList.innerHTML = strHTMLs.join('');
+    elMemeList.style.display = 'grid'
     const elImgGallery = document.querySelector('.img-gallery')
     elImgGallery.style.display = 'none'
-    elMemeList.style.display = 'grid'
+    const elImgSearch = document.querySelector('.search-img')
+    elImgSearch.style.display = 'none'
 }
 
 function onShowGallery() {
@@ -236,6 +271,8 @@ function onShowGallery() {
     elMemeList.style.display = 'none'
     const elImgGallery = document.querySelector('.img-gallery')
     elImgGallery.style.display = 'grid'
+    const elImgSearch = document.querySelector('.search-img')
+    elImgSearch.style.display = 'flex'
 }
 
 
